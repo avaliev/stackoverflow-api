@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/my.css">
+    <script src="js/lib/jquery-3.2.1.js"></script>
+    <script src="js/lib/vue.js"></script>
+    <script src="js/app/app.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <div class="container">
+        <h2>Search Stackoverlflow topics</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <input id="searchInput" type="text" :value="text" class="form-control"/>
+            </div>
+            <div class="col-sm-2">
+                <button @click="doSearch" class="btn btn-success">Search</button>
+            </div>
+        </div>
+        <div>
+            <table class="table table-responsive">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Author</th>
+                    <th>Link</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="item in items" :class="{answered : item.answered }">
+                    <td class="col-sm-4">{{item.title}}</td>
+                    <td class="col-sm-2">{{item.date}}</td>
+                    <td class="col-sm-2">{{item.author}}</td>
+                    <td class="col-sm-2"><a target="_blank" :href="item.url">Link to </a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
